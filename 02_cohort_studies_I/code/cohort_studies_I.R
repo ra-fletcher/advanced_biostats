@@ -114,7 +114,7 @@ bc2 <- bc |>
 
 # Calculate SMR
 dplyr::left_join(at_aggr, bc2, by = c("year", "age")) |> 
-  dplyr::mutate(expected = pyrs * ratesper100000/100000) |> 
+  dplyr::mutate(expected = pyrs * ratesper100000 / 100000) |> 
   dplyr::summarise(
     smr = sum(from0to1, na.rm = TRUE) / sum(expected, na.rm = TRUE),
     lci = exp(log(smr) - 1.96 * (1 / sqrt(20))),
