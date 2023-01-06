@@ -36,13 +36,17 @@ library(tidyverse)
 
 # Objective: Read data into R
 
-# Define working directory
-wd <- 
-  "/Users/robertfletcher/Documents/phd/training/02_cohort_studies"
+# Define working directory (EDIT THIS)
+dir <- 
+  "/Users/robertfletcher/Documents/phd/training"
+
+# Define practical directory (DO NOT EDIT THIS)
+prac <- 
+  "advanced_biostats/02_cohort_studies_I/"
 
 # Read data
-bc <- readr::read_csv(glue::glue("{wd}/data/cohort_01_bc_rates.csv"))
-at <- readr::read_csv(glue::glue("{wd}/data/cohort_01_at_relatives.csv"))
+bc <- readr::read_csv(glue::glue("{dir}/{prac}/data/cohort_01_bc_rates.csv"))
+at <- readr::read_csv(glue::glue("{dir}/{prac}/data/cohort_01_at_relatives.csv"))
 
 # Inspect data
 print(bc, n = 20)
