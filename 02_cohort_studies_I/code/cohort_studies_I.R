@@ -235,13 +235,13 @@ names <- tibble::tibble(stratum = c("1", "2", "3", "MH"))
 
 stratum_irr <- tibble::tibble(mh$massoc.detail$IRR.strata.wald)
 mh_irr <- tibble::tibble(mh$massoc.detail$IRR.mh.wald)
-comb_irr <- bind_rows(stratum_irr, mh_irr)
+comb_irr <- dplyr::bind_rows(stratum_irr, mh_irr)
 
 stratum_pval <- tibble::tibble(p = mh$massoc.detail$chi2.strata.uncor$p.value.2s)
 mh_pval <- tibble::tibble(p = mh$massoc.detail$chi2.mh$p.value.2s)
-comb_pval <- bind_rows(stratum_pval, mh_pval)
+comb_pval <- dplyr::bind_rows(stratum_pval, mh_pval)
 
-bind_cols(names, comb_irr, comb_pval)
+dplyr::bind_cols(names, comb_irr, comb_pval)
 
 
 # Exercise 3; Task A ------------------------------------------------------
@@ -267,10 +267,10 @@ names_ht <- tibble::tibble(stratum = c("1", "2", "3", "4", "5", "MH"))
 
 stratum_irr_ht <- tibble::tibble(mh_ht$massoc.detail$IRR.strata.wald)
 mh_irr_ht <- tibble::tibble(mh_ht$massoc.detail$IRR.mh.wald)
-comb_irr_ht <- bind_rows(stratum_irr_ht, mh_irr_ht)
+comb_irr_ht <- dplyr::bind_rows(stratum_irr_ht, mh_irr_ht)
 
 stratum_pval_ht <- tibble::tibble(p = mh_ht$massoc.detail$chi2.strata.uncor$p.value.2s)
 mh_pval_ht <- tibble::tibble(p = mh_ht$massoc.detail$chi2.mh$p.value.2s)
-comb_pval_ht <- bind_rows(stratum_pval_ht, mh_pval_ht)
+comb_pval_ht <- dplyr::bind_rows(stratum_pval_ht, mh_pval_ht)
 
-bind_cols(names_ht, comb_irr_ht, comb_pval_ht)
+dplyr::bind_cols(names_ht, comb_irr_ht, comb_pval_ht)
