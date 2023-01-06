@@ -17,7 +17,7 @@
 # Install dependencies (if required) --------------------------------------
 
 # Library names
-libs <- c("epi", "epitools", "popEpi", "tidyverse")
+libs <- c("Epi", "epiR", "epitools", "popEpi", "tidyverse")
 
 # Install libraries
 install.packages(setdiff(libs, rownames(installed.packages())))
