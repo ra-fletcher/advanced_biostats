@@ -21,8 +21,7 @@
 # Install dependencies (if required) --------------------------------------
 
 # Library names
-libs <- 
-  c("epiR", "jtools", "multcomp", "tidymodels", "tidyverse")
+libs <- c("epiR", "jtools", "multcomp", "tidymodels", "tidyverse")
 
 # Install libraries
 install.packages(setdiff(libs, rownames(installed.packages())))
