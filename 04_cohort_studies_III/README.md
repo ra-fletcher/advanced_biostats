@@ -11,3 +11,7 @@ Below is an overview of the folders in this repository that are actively synchro
 ### code
 
 `code` contains the practical code.
+
+### data
+
+`data` contains the data used by the practical code.
