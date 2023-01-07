@@ -12,7 +12,7 @@
 
 # Notes -------------------------------------------------------------------
 
-# This is the code for Practical Session 2: Analysis of Cohort Studies II
+# This is the code for Practical Session 3: Analysis of Cohort Studies II
 
 # `|>` is the base R pipe operator. It will be used throughout this code in 
 # favour of the pipe operator imported with the magrittr library `%>%`
@@ -110,13 +110,14 @@ jtools::summ(fit_cat, confint = TRUE, digits = 5, exp = TRUE)
 coef_cat <- fit_cat |> 
   broom::tidy(conf.int = TRUE, exponentiate = TRUE)
 
-# Use intercept estimate to get incidence rate for reference group (`soc4` == 0) 
+# Use intercept estimate to get incidence rate (per 1000 person years) for 
+# reference group (`soc4` == 0) 
 ref_rate <- coef_cat |> 
   dplyr::filter(term == "(Intercept)") |> 
   dplyr::pull(estimate) |> 
   purrr::map_dbl( ~ . * 1000)
 
-# Use intercept estimate + `soc4` == 3 estimate to get incidence rate ratio for 
+# Use intercept estimate + `soc4` == 3 estimate to get incidence rate for 
 # `soc4` == 3 
 lvl3_rate <- coef_cat |> 
   dplyr::filter(term == "soc43") |> 
