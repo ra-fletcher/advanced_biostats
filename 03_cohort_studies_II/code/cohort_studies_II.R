@@ -169,7 +169,7 @@ inc_3pt <-
   confint(multcomp::glht(fit_cont, linfct = c("3 * soc = 0")))
 
 # Convert results to tibble
-as_tibble(inc_3pt$confint)
+tibble::as_tibble(inc_3pt$confint)
 
 # Alternative
 df <- df |> 
