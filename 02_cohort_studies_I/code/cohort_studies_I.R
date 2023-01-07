@@ -46,7 +46,7 @@ dir <-
 
 # Define practical directory (DO NOT EDIT THIS)
 prac <- 
-  "advanced_biostats/02_cohort_studies_I/"
+  "advanced_biostats/02_cohort_studies_I"
 
 # Read data
 bc <- readr::read_csv(glue::glue("{dir}/{prac}/data/cohort_01_bc_rates.csv"))
