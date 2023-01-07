@@ -3,7 +3,8 @@
 # Course:  MPhil Population Health Sciences
 # Module:  Advanced Biostatistics for Epidemiology
 # Date:    06-Jan-2023
-# Author:  Robert A Fletcher
+# Author:  Rob Fletcher
+# Contact: raf69@medschl.cam.ac.uk
 # Purpose: Analysis of Cohort Studies I
 #
 #*******************************************************************************
@@ -14,7 +15,7 @@
 # This is the code for Practical Session 2: Analysis of Cohort Studies I
 
 # `|>` is the base R pipe operator. It will be used throughout this code in 
-# favour of the pipe operator imported with the magrittr library, `%>%`
+# favour of the pipe operator imported with the magrittr library `%>%`
 
 
 # Install dependencies (if required) --------------------------------------
@@ -193,9 +194,12 @@ df <-
   tibble::tibble(
     deaths = c(47, 185, 117, 117, 350, 192),
     py = c(3896, 17801, 19510, 6559, 22671, 27349),
-    smoking = c(1, 2, 3, 1, 2, 3),
-    soc = c(1, 1, 1, 0, 0, 0)
+    smoking = rep(1:3, times = 2),
+    soc = rep(1:0, each = 3)
   )
+
+# Inspect data
+print(df)
 
 
 # Exercise 2; Task B ------------------------------------------------------
@@ -212,7 +216,7 @@ df2 <- df |>
   dplyr::summarise(dplyr::across(tidyr::everything(), sum)) |> 
   dplyr::arrange(dplyr::desc(soc))
 
-# Compute the rate ratio and 95% CI
+# Compute rate ratio and 95% CI
 results <- 
   epiR::epi.2by2(cbind(df2$deaths, df2$py), method = "cohort.time")
 irr <- 
@@ -221,15 +225,15 @@ irr <-
 p_val <- 
   summary(results)$massoc.detail$chi2.strata.uncor$p.value.2s
 
-# Create a 2x2 contingency table for each smoking stratum
+# Create 2x2 contingency table for each smoking stratum
 tab <- df |>
   dplyr::group_split(smoking) |>
   purrr::map( ~ cbind(.$deaths, .$py)) |>
   unlist() |> 
   array(dim = c(2, 2, 3)) 
 
-# Compute the rate ratio and 95% CI for each smoking stratum and 
-# Mantel–Haenszel-adjusted rate ratio
+# Compute rate ratio and 95% CI for each smoking stratum and Mantel–Haenszel
+# adjusted rate ratio
 mh <- tab |> 
   epiR::epi.2by2(method = "cohort.time") |> 
   summary()
@@ -252,15 +256,15 @@ dplyr::bind_cols(names, comb_irr, comb_pval)
 # Load data
 ht <- readr::read_csv(glue::glue("{wd}/data/cohort_01_heart.csv"))
 
-# Format the data into five 2 by 2 tables for each age group
+# Format data into five 2 by 2 tables for each age group
 ht_tab <- ht |>
   dplyr::group_split(age) |>
   purrr::map( ~ as.matrix(dplyr::select(., deaths, pyears))) |> 
   unlist() |> 
   array(dim = c(2, 2, 5)) 
 
-# Compute the rate ratio and 95% CI for each age stratum and 
-# Mantel–Haenszel-adjusted rate ratio
+# Compute rate ratio and 95% CI for each age stratum and Mantel–Haenszel
+# adjusted rate ratio
 
 mh_ht <- ht_tab |> 
   epiR::epi.2by2(method = "cohort.time") |> 
