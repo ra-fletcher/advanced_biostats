@@ -4,14 +4,17 @@
 # Module:  Advanced Biostatistics for Epidemiology
 # Date:    06-Jan-2023
 # Author:  Robert A Fletcher
-# Purpose: Analysis of cohort studies I
+# Purpose: Analysis of Cohort Studies I
 #
 #*******************************************************************************
 
 
 # Notes -------------------------------------------------------------------
 
-# `|>` is the base R pipe operator
+# This is the code for Practical Session 2: Analysis of Cohort Studies I
+
+# `|>` is the base R pipe operator. It will be used throughout this code in 
+# favour of the pipe operator imported with the magrittr library, `%>%`
 
 
 # Install dependencies (if required) --------------------------------------
@@ -36,7 +39,7 @@ library(tidyverse)
 
 # Objective: Read data into R
 
-# Define working directory (EDIT THIS)
+# Define file path to practical directory (EDIT THIS)
 dir <- 
   "/Users/robertfletcher/Documents/phd/training"
 
@@ -132,7 +135,7 @@ dplyr::left_join(at_aggr, bc2, by = c("year", "age")) |>
 
 # Recode rates
 bc2 <- bc2 |>
-  dplyr::mutate(rate = ratesper100000/100000)
+  dplyr::mutate(rate = ratesper100000 / 100000)
 
 # Calculate SMR using `sir()` function
 popEpi::sir(
