@@ -2,7 +2,7 @@
 
 ## Overview
 
-Practical material for Lecture 3: Analysis of Cohort Studies I.
+Practical material for Lecture 3: Analysis of Cohort Studies II.
 
 ## Folder structure
 
