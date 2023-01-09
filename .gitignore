@@ -2,7 +2,6 @@
 .DS_Store
 
 # Quarto folders and files
-*/doc/*_questions_files/
 *.qmd
 
 # History files
