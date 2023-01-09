@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Angela Wood">
+
+<title>Practical Session 2: Analysis of Cohort Studies I</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="cohort_studies_I_questions_files/libs/clipboard/clipboard.min.js"></script>
+<script src="cohort_studies_I_questions_files/libs/quarto-html/quarto.js"></script>
+<script src="cohort_studies_I_questions_files/libs/quarto-html/popper.min.js"></script>
+<script src="cohort_studies_I_questions_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="cohort_studies_I_questions_files/libs/quarto-html/anchor.min.js"></script>
+<link href="cohort_studies_I_questions_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="cohort_studies_I_questions_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="cohort_studies_I_questions_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="cohort_studies_I_questions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="cohort_studies_I_questions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+<script src="cohort_studies_I_questions_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="cohort_studies_I_questions_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
+
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Practical Session 2: Analysis of Cohort Studies I</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Angela Wood </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Please complete Exercise 1: Tasks A-E and Exercise 2: Tasks A-B</p>
+<section id="exercise-1" class="level1">
+<h1>Exercise 1</h1>
+<p>This exercise is based on data from 396 female relatives of children who have been diagnosed with a rare neurological disorder called ataxia telangiectasia (A-T).</p>
+<p>A-T is caused by inheriting two mutated copies of a gene called ATM, one from each parent. Hence the aunts, uncles and grandparents of A-T patients each have a 50% chance of carrying one mutated copy of the gene. It is been hypothesised that that female carriers of just one mutated copy of ATM have a mildly increased risk of breast cancer, and these data were collected to test that hypothesis.</p>
+<p>The population rates for England and Wales are taken from the Cancer in Five Continents publications (Volumes I to VIII) and have been made into a file called <code>cohort_01_bc_rates.csv</code>.</p>
+<p>In this exercise we will use the following R functions, for which you should briefly read the documentation:</p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R functions</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>()</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># `Tidyverse` functions</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv</span>()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">count</span>()</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">rename</span>()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">mutate</span>()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>()</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># `popEpi` functions</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>popEpi<span class="sc">::</span><span class="fu">lexpand</span>()</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>popEpi<span class="sc">::</span><span class="fu">sir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="task-a-read-data-into-r" class="level2">
+<h2 class="anchored" data-anchor-id="task-a-read-data-into-r">Task A: Read data into R</h2>
+<p>Open the data up in R and have a look. The year and the age refer to the start of each age/calendar period.</p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define file path to practical directory (EDIT THIS)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dir <span class="ot">&lt;-</span> <span class="st">"/Users/robertfletcher/Documents/phd/training"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define practical directory (DO NOT EDIT THIS)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>prac <span class="ot">&lt;-</span> <span class="st">"advanced_biostats/02_cohort_studies_I"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>bc <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{dir}/{prac}/data/cohort_01_bc_rates.csv"</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>at <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{dir}/{prac}/data/cohort_01_at_relatives.csv"</span>))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect data</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bc, <span class="at">n =</span> <span class="dv">5</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 108 × 3</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   yearband ageband ratesper100000</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;dbl&gt;   &lt;dbl&gt;          &lt;dbl&gt;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1970       0           0   </span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     1975       0           0   </span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     1980       0           0.03</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4     1985       0           0.05</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5     1990       0           0.06</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 103 more rows</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ Use `print(n = ...)` to see more rows</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(at, <span class="at">n =</span> <span class="dv">5</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 396 × 5</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id        dob dexit brcancer relative   </span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;      </span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 A003102  1896  1988        0 Grandmother</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 A004104  1915  2002        0 Grandmother</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 A006104  1945  2002        0 Grandmother</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 A007102  1923  1996        0 Grandmother</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 A007104  1932  2002        0 Grandmother</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 391 more rows</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ Use `print(n = ...)` to see more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="task-b-explore-the-breast-cancer-data-among-relatives-of-at-patients" class="level2">
+<h2 class="anchored" data-anchor-id="task-b-explore-the-breast-cancer-data-among-relatives-of-at-patients">Task B: Explore the breast cancer data among relatives of AT patients</h2>
+<p><em>Q: What was the rate of breast cancer (per 100,000 person years) between 1970-75 in women aged 60-64 years?</em></p>
+<p><br></p>
+<p><em>Q: And what was the rate between 1990-95 in women aged 65-69 years?</em></p>
+<p><br></p>
+<p><em>Q: How many of each type of relative are there?</em></p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>at <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(relative)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><em>Q: And how many breast cancers were diagnosed?</em></p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>at <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(brcancer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</section>
+<section id="task-c-summarise-the-cohort-data" class="level2">
+<h2 class="anchored" data-anchor-id="task-c-summarise-the-cohort-data">Task C: Summarise the cohort data</h2>
+<p>Use the function <code>lexpand()</code> to aggregate the observed data in the same 5-year age (0-90) and time bands (1970-1995) as the data provided in the population rates. Note that we will assume that births and events occur at the start of each year. Since we only have population rates from 1970 onwards, we will create a new date of entry, being the maximum (dob, 1970).</p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code date of entry</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>at <span class="ot">&lt;-</span> at <span class="sc">|&gt;</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">dentry =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      dob <span class="sc">&gt;</span> <span class="dv">1970</span> <span class="sc">~</span> dob,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">1970</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate data</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>at_aggr <span class="ot">&lt;-</span> </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  popEpi<span class="sc">::</span><span class="fu">lexpand</span>(</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    at, <span class="at">birth =</span> dob, <span class="at">entry =</span> dentry, <span class="at">exit =</span> dexit, <span class="at">status =</span> brcancer <span class="sc">==</span> <span class="dv">1</span>, </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">list</span>(<span class="at">age =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">90</span>, <span class="dv">5</span>), <span class="at">per =</span> <span class="fu">seq</span>(<span class="dv">1970</span>, <span class="dv">2000</span>, <span class="dv">5</span>)),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">aggre =</span> <span class="fu">list</span>(age, <span class="at">year =</span> per)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>()</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Check aggregated data</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(at_aggr, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Check you understand the format of this aggregated dataset. The <code>from0to1</code> column represents the total number of observed events recorded and the <code>pyrs</code> column represents the total number of person-time recorded in each year and age group strata.</p>
+<p><em>Q: What are the number of cancer events and are they the same as before summarising the data?</em></p>
+<p><br></p>
+</section>
+<section id="task-d-merge-with-the-population-rates-and-calculate-the-standardised-mortality-ratio-smr" class="level2">
+<h2 class="anchored" data-anchor-id="task-d-merge-with-the-population-rates-and-calculate-the-standardised-mortality-ratio-smr">Task D: Merge with the population rates and calculate the standardised mortality ratio (SMR)</h2>
+<p>We will estimate the standardized mortality ratio in R. The standardized mortality ratio (SMR) is the ratio of the observed number of deaths in the study population to the number that would be expected if the study population experienced the same mortality as the standard population. When studying disease incidence (rather than deaths) the corresponding quantity is called a standardized incidence ratio (SIR).</p>
+<p>Our example illustrates the approach to estimating SMRs using R. Specifically, we will estimate SMRs for the AT relatives data using the general population breast cancer rates stratified by age and calendar to estimate the expected number of cancers.</p>
+<p>In order to merge the data, the variable names must be named the same. We will change them in the BC rates dataset:</p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bc2 <span class="ot">&lt;-</span> bc <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">year =</span> yearband, <span class="at">age =</span> ageband)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can now use the function <code>dplyr::left_join()</code> to combine the data:</p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(at_aggr, bc2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"age"</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 102 × 7</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      age  year  pyrs at.risk from0to0 from0to1 ratesper100000</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;          &lt;dbl&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     0  1970    59      17        0        0           0   </span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     0  1975    21       5        0        0           0   </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     0  1980     8       3        0        0           0.03</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     5  1970   105      24        0        0           0   </span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     5  1975    59      17        0        0           0   </span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     5  1980    21       5        0        0           0.02</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     5  1985     8       3        0        0           0.01</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8    10  1970   140      34        0        0           0.05</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9    10  1975   105      24        0        0           0.06</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10    10  1980    59      17        0        0           0   </span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 92 more rows</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ Use `print(n = ...)` to see more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using the approach from the lecture, we can estimate the stratum specific expected cancer events in the cohort, according to population rates as: “stratum specific rates in POPULATION” × “person-years in stratum in COHORT”.</p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(at_aggr, bc2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"age"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">expected =</span> pyrs <span class="sc">*</span> ratesper100000 <span class="sc">/</span> <span class="dv">100000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note, we have divided by 100000 so that the observed events (in column from0to1) are in the same units as the expected events. Thus, SMR can be calculated as:</p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(at_aggr, bc2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"age"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">expected =</span> pyrs <span class="sc">*</span> ratesper100000 <span class="sc">/</span> <span class="dv">100000</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">smr =</span> <span class="fu">sum</span>(from0to1, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(expected, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">lci =</span> <span class="fu">exp</span>(<span class="fu">log</span>(smr) <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">20</span>))),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">uci =</span> <span class="fu">exp</span>(<span class="fu">log</span>(smr) <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">20</span>)))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Q: State the SMR and 95% CI and provide an interpretation of these results.</em></p>
+</section>
+<section id="task-e-calculate-the-smr-using-the-sir-function" class="level2">
+<h2 class="anchored" data-anchor-id="task-e-calculate-the-smr-using-the-sir-function">Task E: Calculate the SMR using the <code>sir()</code> function</h2>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode rates</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>bc2 <span class="ot">&lt;-</span> bc2 <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">rate =</span> ratesper100000 <span class="sc">/</span> <span class="dv">100000</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate SMR using `sir()` function</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>popEpi<span class="sc">::</span><span class="fu">sir</span>(</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">coh.data =</span> at_aggr, <span class="at">coh.obs =</span> from0to1, <span class="at">coh.pyrs =</span> pyrs, <span class="at">ref.data =</span> bc2, </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">ref.rate =</span> rate, <span class="at">adjust =</span> <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"year"</span>), <span class="at">conf.type=</span> <span class="st">"univariate"</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The confidence intervals are slightly different because the <code>sir()</code> method uses the Poisson model to estimate the standard error rather than our simpler approximation (see lecture notes).</p>
+<p><em>Q: How many breast cancers were observed and expected?</em></p>
+<p><br></p>
+<p><em>Q: What is the SMR and 95% CI from the Poisson model? Does it agree with your previous answer?</em></p>
+<p><br></p>
+</section>
+<section id="extension-task-f-exploring-the-data-by-subgroups-and-power-calculation" class="level2">
+<h2 class="anchored" data-anchor-id="extension-task-f-exploring-the-data-by-subgroups-and-power-calculation">Extension Task F: Exploring the data by subgroups and power calculation</h2>
+<p><em>Q: What are the results for Aunts (observed, expected, SMR and 95% CI) and for grandmothers?</em></p>
+<p><br></p>
+<p>Hint – you will need to re-create the aggregated data by relative.</p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-aggregate data but now including `relative`</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>at_aggr_rel <span class="ot">&lt;-</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  popEpi<span class="sc">::</span><span class="fu">lexpand</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    at, <span class="at">birth =</span> dob, <span class="at">entry =</span> dentry, <span class="at">exit =</span> dexit, <span class="at">status =</span> brcancer <span class="sc">==</span> <span class="dv">1</span>, </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">list</span>(<span class="at">age =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">90</span>, <span class="dv">5</span>), <span class="at">per =</span> <span class="fu">seq</span>(<span class="dv">1970</span>, <span class="dv">2000</span>, <span class="dv">5</span>)),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">aggre =</span> <span class="fu">list</span>(age, <span class="at">year =</span> per, relative)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>()</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Aunts</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>popEpi<span class="sc">::</span><span class="fu">sir</span>(</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">coh.data =</span> at_aggr_rel[at_aggr_rel<span class="sc">$</span>relative <span class="sc">==</span> <span class="st">"Aunt"</span>, ], <span class="at">coh.obs =</span> from0to1, </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">coh.pyrs =</span> pyrs, <span class="at">ref.data =</span> bc2 , <span class="at">ref.rate =</span> rate,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">adjust =</span> <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"year"</span>), <span class="at">conf.type =</span> <span class="st">"univariate"</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Grandmothers</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>popEpi<span class="sc">::</span><span class="fu">sir</span>(</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">coh.data =</span> at_aggr_rel[at_aggr_rel<span class="sc">$</span>relative <span class="sc">==</span> <span class="st">"Grandmother"</span>, ], </span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">coh.obs =</span> from0to1, <span class="at">coh.pyrs =</span> pyrs, <span class="at">ref.data =</span> bc2 , <span class="at">ref.rate =</span> rate,</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">adjust =</span> <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"year"</span>), <span class="at">conf.type =</span> <span class="st">"univariate"</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Q: Was this study large enough to have 80% power to detect a two-fold increase in risk among relatives at the 5% significance level? What about in the subgroups? (Hint: see lecture notes)</em></p>
+<p><br></p>
+</section>
+</section>
+<section id="exercise-2" class="level1">
+<h1>Exercise 2</h1>
+<p>In this exercise we will use the following R functions, for which you should briefly read the documentation:</p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R functions</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># `Tidyverse` functions</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">arrange</span>()</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>()</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">group_split</span>()</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">map</span>()</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># `epiR` functions</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>epiR<span class="sc">::</span><span class="fu">epi.2by2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The data in the following table relate to deaths in people with different sense of coherence scores (<code>soc</code> == 1 indicates a better ability to cope with social stress) and different smoking levels (1 = “Current smoker”, 2 = “Ex-smoker”, 3 = “Never smoked”).</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">  </th>
+   <th style="text-align:left;">  </th>
+   <th style="text-align:left;">  </th>
+   <th style="text-align:left;">  </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;border-left:2px solid lightgray;border-right:2px solid lightgray;border-bottom: 2px solid lightgray;">  </td>
+   <td style="text-align:left;border-left:2px solid lightgray;border-right:2px solid lightgray;border-bottom: 2px solid lightgray;"> smoking == 1 </td>
+   <td style="text-align:left;border-left:2px solid lightgray;border-right:2px solid lightgray;border-bottom: 2px solid lightgray;"> smoking == 2 </td>
+   <td style="text-align:left;border-left:2px solid lightgray;border-right:2px solid lightgray;border-bottom: 2px solid lightgray;"> smoking == 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;border-left:2px solid lightgray;border-right:2px solid lightgray;border-bottom: 2px solid lightgray;"> soc == 1 </td>
+   <td style="text-align:left;border-left:2px solid lightgray;border-right:2px solid lightgray;border-bottom: 2px solid lightgray;"> pyears = 3,896, deaths  = 47 </td>
+   <td style="text-align:left;border-left:2px solid lightgray;border-right:2px solid lightgray;border-bottom: 2px solid lightgray;"> pyears = 17,801, deaths = 185 </td>
+   <td style="text-align:left;border-left:2px solid lightgray;border-right:2px solid lightgray;border-bottom: 2px solid lightgray;"> pyears = 19,510, deaths = 117 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;border-left:2px solid lightgray;border-right:2px solid lightgray;border-bottom: 2px solid lightgray;"> soc == 0 </td>
+   <td style="text-align:left;border-left:2px solid lightgray;border-right:2px solid lightgray;border-bottom: 2px solid lightgray;"> pyears = 6,559, deaths = 117 </td>
+   <td style="text-align:left;border-left:2px solid lightgray;border-right:2px solid lightgray;border-bottom: 2px solid lightgray;"> pyears = 22,671, deaths = 350 </td>
+   <td style="text-align:left;border-left:2px solid lightgray;border-right:2px solid lightgray;border-bottom: 2px solid lightgray;"> pyears = 27,349, deaths = 192 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>These data are used in Cohorts Lecture I and Lecture III.</p>
+<section id="task-a-create-data" class="level2">
+<h2 class="anchored" data-anchor-id="task-a-create-data">Task A: Create data</h2>
+<p>Create new data frame using <code>tibble::tibble()</code>:</p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">deaths =</span> <span class="fu">c</span>(<span class="dv">47</span>, <span class="dv">185</span>, <span class="dv">117</span>, <span class="dv">117</span>, <span class="dv">350</span>, <span class="dv">192</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">py =</span> <span class="fu">c</span>(<span class="dv">3896</span>, <span class="dv">17801</span>, <span class="dv">19510</span>, <span class="dv">6559</span>, <span class="dv">22671</span>, <span class="dv">27349</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">smoking =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times =</span> <span class="dv">2</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">soc =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">0</span>, <span class="at">each =</span> <span class="dv">3</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 4</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   deaths    py smoking   soc</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;int&gt; &lt;int&gt;</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     47  3896       1     1</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    185 17801       2     1</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    117 19510       3     1</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    117  6559       1     0</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    350 22671       2     0</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    192 27349       3     0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="task-b-use-classical-methods-to-compute-the-rate-ratio" class="level2">
+<h2 class="anchored" data-anchor-id="task-b-use-classical-methods-to-compute-the-rate-ratio">Task B: Use classical methods to compute the rate ratio</h2>
+<p><em>Q: Use classical methods to compute and interpret the rate ratio, for the exposure of SOC=1, with its 95% CI and the p-value for testing the null hypothesis, rate-ratio = 1.</em></p>
+<p><br></p>
+<p>First, you first need to combine the data across smoking groups. You can do this by hand and create a new data frame or table, or use a function like <code>summarise()</code>:</p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Order data by smoking and exposed/unexposed SOC</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(smoking, dplyr<span class="sc">::</span><span class="fu">desc</span>(soc))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Get number of deaths and total person years for exposed and unexposed </span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(soc) <span class="sc">|&gt;</span> </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(dplyr<span class="sc">::</span><span class="fu">across</span>(tidyr<span class="sc">::</span><span class="fu">everything</span>(), sum)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(soc))</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute rate ratio and 95% CI</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  epiR<span class="sc">::</span><span class="fu">epi.2by2</span>(<span class="fu">cbind</span>(df2<span class="sc">$</span>deaths, df2<span class="sc">$</span>py), <span class="at">method =</span> <span class="st">"cohort.time"</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The summary of results provides an extensive output. We are interested in the following results:</p>
+<p><code>$massoc.detail$IRR.strata.wald</code> = Crude incidence rate ratio and 95% CI.</p>
+<p><code>$massoc.detail$chi2.strata.uncor</code> = Uncorrected chi2 test to test null hypothesis that association rate ratio= 1. We are interested in the two-sided p-value (<code>$massoc.detail$chi2.strata.uncor$p.value.2s</code>).</p>
+<p>This analysis ignored the possible confounding effect of smoking.</p>
+<p><em>Q: Compute the rate ratios for each level of smoking (strata), and the MH estimate of  stratified by smoking status.</em></p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create 2x2 contingency table for each smoking stratum</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_split</span>(smoking) <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">map</span>( <span class="sc">~</span> <span class="fu">cbind</span>(.<span class="sc">$</span>deaths, .<span class="sc">$</span>py)) <span class="sc">|&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">array</span>(<span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)) </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute rate ratio and 95% CI for each smoking stratum and Mantel–Haenszel</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># adjusted rate ratio</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>mh <span class="ot">&lt;-</span> tab <span class="sc">|&gt;</span> </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  epiR<span class="sc">::</span><span class="fu">epi.2by2</span>(<span class="at">method =</span> <span class="st">"cohort.time"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>The summary of MH results again provides an extensive output. We are interested in the following results:</p>
+<p><code>$massoc.detail$IRR.strata.wald</code> = Incidence rate ratio and 95% CI for each strata.</p>
+<p><code>$massoc.detail$IRR.crude.wald</code> = Crude incidence rate ratio and 95% CI.</p>
+<p><code>$massoc.detail$IRR.mh.wald</code> = MH incidence rate ratio and 95% CI.</p>
+<p><code>$massoc.detail$chi2.strata.uncor</code> = Uncorrected chi2 test to test null hypothesis that association rate ratio=1 for each strata. We are interested in the two-sided p-value (p.value.2s).</p>
+<p><code>$massoc.detail$chi2.mh</code> = MH chi2 test to test null hypothesis that MH rate ratio = 1. We are interested in the two-sided p-value (p.value.2s).</p>
+<p><em>Q: Check your answers match those we did by hand during the lecture.</em></p>
+<p><br></p>
+</section>
+</section>
+<section id="extension-exercise-3" class="level1">
+<h1>Extension Exercise 3</h1>
+<p>The data in cohort_01_heart.csv relate to a study of deaths from ischaemic heart disease in smokers and non-smokers among British male doctors (Doll and Hill, 1966).</p>
+<p>This time smoking (<code>smoker</code> == 1) is the exposure, and age (<code>age</code> == 1 for 35 - 44yrs; 2 for 45 - 54yrs, 3 for 55 - 64 yrs, 4 for 65 - 74 yrs, 5 for 75 - 84 yrs) is the possible confounder.</p>
+<p><em>Q: Compute the overall rate ratio for smokers, and also the MH estimate of the rate-ratio stratified by age-group.</em></p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Format data into five 2 by 2 tables for each age group</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ht_tab <span class="ot">&lt;-</span> ht <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_split</span>(age) <span class="sc">|&gt;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">map</span>( <span class="sc">~</span> <span class="fu">as.matrix</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(., deaths, pyears))) <span class="sc">|&gt;</span> </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">array</span>(<span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">5</span>)) </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute rate ratio and 95% CI for each age stratum and Mantel–Haenszel</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co"># adjusted rate ratio</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>mh_ht <span class="ot">&lt;-</span> ht_tab <span class="sc">|&gt;</span> </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  epiR<span class="sc">::</span><span class="fu">epi.2by2</span>(<span class="at">method =</span> <span class="st">"cohort.time"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><em>Q: According to these data, is smoking a significant risk factor for ischaemic heart disease, and does its association vary with age? If so, describe how.</em></p>
+<p><br></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
