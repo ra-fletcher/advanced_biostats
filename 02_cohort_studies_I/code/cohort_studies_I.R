@@ -53,8 +53,8 @@ bc <- readr::read_csv(glue::glue("{dir}/{prac}/data/cohort_01_bc_rates.csv"))
 at <- readr::read_csv(glue::glue("{dir}/{prac}/data/cohort_01_at_relatives.csv"))
 
 # Inspect data
-print(bc, n = 20)
-print(at, n = 20)
+print(bc, n = 10)
+print(at, n = 10)
 
 
 # Exercise 1; Task B ------------------------------------------------------
@@ -265,7 +265,6 @@ ht_tab <- ht |>
 
 # Compute rate ratio and 95% CI for each age stratum and Mantel–Haenszel
 # adjusted rate ratio
-
 mh_ht <- ht_tab |> 
   epiR::epi.2by2(method = "cohort.time") |> 
   summary()
