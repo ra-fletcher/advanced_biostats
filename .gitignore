@@ -1,6 +1,10 @@
 # Temporary and binary files
 .DS_Store
 
+# Quarto folders and files
+*/doc/*_questions_files/
+*.qmd
+
 # History files
 .Rhistory
 .Rapp.history
