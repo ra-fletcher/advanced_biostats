@@ -199,17 +199,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="task-b-explore-the-breast-cancer-data-among-relatives-of-at-patients" class="level2">
 <h2 class="anchored" data-anchor-id="task-b-explore-the-breast-cancer-data-among-relatives-of-at-patients">Task B: Explore the breast cancer data among relatives of AT patients</h2>
-<p><em>Q: What was the rate of breast cancer (per 100,000 person years) between 1970-75 in women aged 60-64 years?</em></p>
+<p><span style="color: red;"><em>Q: What was the rate of breast cancer (per 100,000 person years) between 1970-75 in women aged 60-64 years?</em></span></p>
 <p><br></p>
-<p><em>Q: And what was the rate between 1990-95 in women aged 65-69 years?</em></p>
+<p><span style="color: red;"><em>Q: And what was the rate between 1990-95 in women aged 65-69 years?</em></span></p>
 <p><br></p>
-<p><em>Q: How many of each type of relative are there?</em></p>
+<p><span style="color: red;"><em>Q: How many of each type of relative are there?</em></span></p>
 <div class="cell" data-paged.print="false">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>at <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(relative)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<p><em>Q: And how many breast cancers were diagnosed?</em></p>
+<p><span style="color: red;"><em>Q: And how many breast cancers were diagnosed?</em></span></p>
 <div class="cell" data-paged.print="false">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>at <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(brcancer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -242,7 +242,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(at_aggr, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Check you understand the format of this aggregated dataset. The <code>from0to1</code> column represents the total number of observed events recorded and the <code>pyrs</code> column represents the total number of person-time recorded in each year and age group strata.</p>
-<p><em>Q: What are the number of cancer events and are they the same as before summarising the data?</em></p>
+<p><span style="color: red;"><em>Q: What are the number of cancer events and are they the same as before summarising the data?</em></span></p>
 <p><br></p>
 </section>
 <section id="task-d-merge-with-the-population-rates-and-calculate-the-standardised-mortality-ratio-smr" class="level2">
@@ -288,7 +288,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">uci =</span> <span class="fu">exp</span>(<span class="fu">log</span>(smr) <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">20</span>)))</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><em>Q: State the SMR and 95% CI and provide an interpretation of these results.</em></p>
+<p><span style="color: red;"><em>Q: State the SMR and 95% CI and provide an interpretation of these results.</em></span></p>
+<p><br></p>
 </section>
 <section id="task-e-calculate-the-smr-using-the-sir-function" class="level2">
 <h2 class="anchored" data-anchor-id="task-e-calculate-the-smr-using-the-sir-function">Task E: Calculate the SMR using the <code>sir()</code> function</h2>
@@ -304,14 +305,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The confidence intervals are slightly different because the <code>sir()</code> method uses the Poisson model to estimate the standard error rather than our simpler approximation (see lecture notes).</p>
-<p><em>Q: How many breast cancers were observed and expected?</em></p>
+<p><span style="color: red;"><em>Q: How many breast cancers were observed and expected?</em></span></p>
 <p><br></p>
-<p><em>Q: What is the SMR and 95% CI from the Poisson model? Does it agree with your previous answer?</em></p>
+<p><span style="color: red;"><em>Q: What is the SMR and 95% CI from the Poisson model? Does it agree with your previous answer?</em></span></p>
 <p><br></p>
 </section>
 <section id="extension-task-f-exploring-the-data-by-subgroups-and-power-calculation" class="level2">
 <h2 class="anchored" data-anchor-id="extension-task-f-exploring-the-data-by-subgroups-and-power-calculation">Extension Task F: Exploring the data by subgroups and power calculation</h2>
-<p><em>Q: What are the results for Aunts (observed, expected, SMR and 95% CI) and for grandmothers?</em></p>
+<p><span style="color: red;"><em>Q: What are the results for Aunts (observed, expected, SMR and 95% CI) and for grandmothers?</em></span></p>
 <p><br></p>
 <p>Hint – you will need to re-create the aggregated data by relative.</p>
 <div class="cell" data-paged.print="false">
@@ -338,7 +339,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">adjust =</span> <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"year"</span>), <span class="at">conf.type =</span> <span class="st">"univariate"</span></span>
 <span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><em>Q: Was this study large enough to have 80% power to detect a two-fold increase in risk among relatives at the 5% significance level? What about in the subgroups? (Hint: see lecture notes)</em></p>
+<p><span style="color: red;"><em>Q: Was this study large enough to have 80% power to detect a two-fold increase in risk among relatives at the 5% significance level? What about in the subgroups? (Hint: see lecture notes)</em></span></p>
 <p><br></p>
 </section>
 </section>
@@ -422,7 +423,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="task-b-use-classical-methods-to-compute-the-rate-ratio" class="level2">
 <h2 class="anchored" data-anchor-id="task-b-use-classical-methods-to-compute-the-rate-ratio">Task B: Use classical methods to compute the rate ratio</h2>
-<p><em>Q: Use classical methods to compute and interpret the rate ratio, for the exposure of SOC=1, with its 95% CI and the p-value for testing the null hypothesis, rate-ratio = 1.</em></p>
+<p><span style="color: red;"><em>Q: Use classical methods to compute and interpret the rate ratio, for the exposure of SOC=1, with its 95% CI and the p-value for testing the null hypothesis, rate-ratio = 1.</em></span></p>
 <p><br></p>
 <p>First, you first need to combine the data across smoking groups. You can do this by hand and create a new data frame or table, or use a function like <code>summarise()</code>:</p>
 <div class="cell" data-paged.print="false">
@@ -445,7 +446,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>$massoc.detail$IRR.strata.wald</code> = Crude incidence rate ratio and 95% CI.</p>
 <p><code>$massoc.detail$chi2.strata.uncor</code> = Uncorrected chi2 test to test null hypothesis that association rate ratio= 1. We are interested in the two-sided p-value (<code>$massoc.detail$chi2.strata.uncor$p.value.2s</code>).</p>
 <p>This analysis ignored the possible confounding effect of smoking.</p>
-<p><em>Q: Compute the rate ratios for each level of smoking (strata), and the MH estimate of  stratified by smoking status.</em></p>
+<p><span style="color: red;"><em>Q: Compute the rate ratios for each level of smoking (strata), and the MH estimate of  stratified by smoking status.</em></span></p>
 <div class="cell" data-paged.print="false">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create 2x2 contingency table for each smoking stratum</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
@@ -467,7 +468,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>$massoc.detail$IRR.mh.wald</code> = MH incidence rate ratio and 95% CI.</p>
 <p><code>$massoc.detail$chi2.strata.uncor</code> = Uncorrected chi2 test to test null hypothesis that association rate ratio=1 for each strata. We are interested in the two-sided p-value (p.value.2s).</p>
 <p><code>$massoc.detail$chi2.mh</code> = MH chi2 test to test null hypothesis that MH rate ratio = 1. We are interested in the two-sided p-value (p.value.2s).</p>
-<p><em>Q: Check your answers match those we did by hand during the lecture.</em></p>
+<p><span style="color: red;"><em>Q: Check your answers match those we did by hand during the lecture.</em></span></p>
 <p><br></p>
 </section>
 </section>
@@ -475,7 +476,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Extension Exercise 3</h1>
 <p>The data in cohort_01_heart.csv relate to a study of deaths from ischaemic heart disease in smokers and non-smokers among British male doctors (Doll and Hill, 1966).</p>
 <p>This time smoking (<code>smoker</code> == 1) is the exposure, and age (<code>age</code> == 1 for 35 - 44yrs; 2 for 45 - 54yrs, 3 for 55 - 64 yrs, 4 for 65 - 74 yrs, 5 for 75 - 84 yrs) is the possible confounder.</p>
-<p><em>Q: Compute the overall rate ratio for smokers, and also the MH estimate of the rate-ratio stratified by age-group.</em></p>
+<p><span style="color: red;"><em>Q: Compute the overall rate ratio for smokers, and also the MH estimate of the rate-ratio stratified by age-group.</em></span></p>
 <div class="cell" data-paged.print="false">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Format data into five 2 by 2 tables for each age group</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ht_tab <span class="ot">&lt;-</span> ht <span class="sc">|&gt;</span></span>
@@ -491,7 +492,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<p><em>Q: According to these data, is smoking a significant risk factor for ischaemic heart disease, and does its association vary with age? If so, describe how.</em></p>
+<p><span style="color: red;"><em>Q: According to these data, is smoking a significant risk factor for ischaemic heart disease, and does its association vary with age? If so, describe how.</em></span></p>
 <p><br></p>
 </section>
 
