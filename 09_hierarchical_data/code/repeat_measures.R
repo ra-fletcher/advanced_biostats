@@ -139,7 +139,7 @@ bp <- readr::read_csv(glue::glue("{dir}/{prac}/data/mmbp.csv"))
 
 # Check for missing data
 bp |> 
-  purrr::map_df( ~ sum(is.na(.)))
+  purrr::map_df(\(x) sum(is.na(x)))
 
 # Define categorical variables as factors
 bp <- bp |> 
@@ -202,7 +202,7 @@ ggplot2::ggplot(bp, aes(x = weight, y = ..density..)) +
 ggplot2::ggplot(bp, aes(x = weight_c, y = ..density..)) + 
   ggplot2::geom_histogram()
 
-# Recode `time` to years
+# Scale `time` to years
 bp <- bp |> 
   dplyr::mutate(time_years = time / 12)
 
@@ -239,9 +239,10 @@ fit2 <-
     ( 1 + time_years | id),
     data = bp
   )
+summary(fit)
 
 
-  # Extension Exercise 3; Task F --------------------------------------------
+# Extension Exercise 3; Task F --------------------------------------------
 
 # Objective: Plot the predicted curves for sbp over time 
 
