@@ -157,7 +157,7 @@ bp <- bp |>
 
 # Extension Exercise 2; Task B --------------------------------------------
 
-# Objective:	Plot observed responses in systolic blood pressure over time for 
+# Objective:  Plot observed responses in systolic blood pressure over time for 
 #             the three different age groups
 
 # Set seed to set the random number generator state
