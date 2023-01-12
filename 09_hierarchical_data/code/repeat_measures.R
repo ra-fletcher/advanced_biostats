@@ -96,8 +96,8 @@ skin |>
 
 # Split by treatment
 skin |> 
-  group_split(treat) |> 
-  purrr::map( ~ tabulate(., resp, time))
+  dplyr::group_split(treat) |> 
+  purrr::map(\(x) tabulate(x, resp, time))
 
 
 # Exercise 1; Task C ------------------------------------------------------
@@ -128,3 +128,134 @@ fit_int <-
     resp ~ treat * time + (1 | id), data = skin, family = "binomial"
   ) |> 
   jtools::summ(confint = TRUE, digits = 3, exp = TRUE)
+
+
+# Extension Exercise 2; Task A --------------------------------------------
+
+# Objective: Read data into R and check for missing data
+
+# Read data
+bp <- readr::read_csv(glue::glue("{dir}/{prac}/data/mmbp.csv"))
+
+# Check for missing data
+bp |> 
+  purrr::map_df( ~ sum(is.na(.)))
+
+# Define categorical variables as factors
+bp <- bp |> 
+  dplyr::mutate(
+    sex = factor(sex, levels = 1:2, labels = c("male", "female")),
+    agegrp = factor(
+      agegrp, levels = 1:3, labels = c("75-79 yrs", "80-84 yrs", "85+ yrs")
+    ),
+    smoking = factor(
+      smoking, levels = 0:2, 
+      labels = c("never smoker", "ex-smoker", "current smoker")
+    )
+  )
+
+
+# Extension Exercise 2; Task B --------------------------------------------
+
+# Objective:	Plot observed responses in systolic blood pressure over time for 
+#             the three different age groups
+
+# Set seed to set the random number generator state
+set.seed(69)
+
+# Select 10 random individuals from each age group
+bp_slice <- bp |> 
+  tidyr::drop_na() |> 
+  dplyr::group_by(id) |> 
+  dplyr::filter(n() > 1) |> 
+  dplyr::ungroup() |> 
+  dplyr::group_by(agegrp) |> 
+  dplyr::select(id) |> 
+  dplyr::slice_sample(n = 10) |> 
+  dplyr::ungroup() |> 
+  dplyr::left_join(bp, by = c("id", "agegrp"))
+
+# Create spaghetti plot
+ggplot2::ggplot(bp_slice, ggplot2::aes(x = time, y = sbp, group = id)) +
+  ggplot2::geom_point(aes(colour = factor(id))) +
+  ggplot2::geom_line(aes(colour = factor(id))) +
+  ggplot2::facet_wrap(ggplot2::vars(agegrp)) +
+  ggplot2::labs(
+    x = "Time from first health check (months)",
+    y = "Systolic blood pressure (mm Hg)"
+  )
+
+
+# Extension Exercise 2; Task C --------------------------------------------
+
+# Objective: Centre continuous variables
+
+# Centre `weight`
+bp <- bp |> 
+  dplyr::mutate(weight_c = weight - mean(weight, na.rm = TRUE))
+
+# Plot histogram of `weight`
+ggplot2::ggplot(bp, aes(x = weight, y = ..density..)) + 
+  ggplot2::geom_histogram()
+
+# Plot histogram of `weight_c`
+ggplot2::ggplot(bp, aes(x = weight_c, y = ..density..)) + 
+  ggplot2::geom_histogram()
+
+# Recode `time` to years
+bp <- bp |> 
+  dplyr::mutate(time_years = time / 12)
+
+
+# Extension Exercise 2; Task D --------------------------------------------
+
+# Objective: Fit a linear mixed model to `sbp`, with fixed terms for `sex`, 
+#            `agegrp`, `smoking`, `weight_c` and `time_years`, and random 
+#            intercept and slope terms to account for the correlation within 
+#            individuals
+
+# Fit linear mixed model
+fit <- 
+  lme4::lmer(
+    sbp ~ sex + agegrp + smoking + weight_c + time_years + 
+    (1 + time_years | id), 
+    data = bp
+  )
+summary(fit)
+
+
+# Extension Exercise 3; Task E --------------------------------------------
+
+# Objective: Investigate use of quadratic term for time
+
+# Create new time variable
+bp <- bp |> 
+ dplyr::mutate(time_years2 = time_years * time_years)
+
+# Fit linear mixed model
+fit2 <- 
+  lme4::lmer(
+    sbp ~ sex + agegrp + smoking + weight_c + time_years + time_years2 + 
+    ( 1 + time_years | id),
+    data = bp
+  )
+
+
+  # Extension Exercise 3; Task F --------------------------------------------
+
+# Objective: Plot the predicted curves for sbp over time 
+
+# Get model predictions
+bp <- bp |> 
+  drop_na(-dbp) |> 
+  mutate(pred = predict(fit2))
+
+# Plot model predictions by age group
+ggplot2::ggplot(bp, ggplot2::aes(x = time_years, y = pred, group = agegrp)) + 
+  ggplot2::geom_smooth(
+    ggplot2::aes(colour = agegrp), method = "lm", formula = y ~ x
+  ) +
+  ggplot2::labs(
+    x = "Time from first health check (years)",
+    y = "Predicted systolic blood pressure (mm Hg)"
+  )
