@@ -236,7 +236,7 @@ bp <- bp |>
 fit2 <- 
   lme4::lmer(
     sbp ~ sex + agegrp + smoking + weight_c + time_years + time_years2 + 
-    ( 1 + time_years | id),
+    (1 + time_years | id),
     data = bp
   )
 summary(fit)
