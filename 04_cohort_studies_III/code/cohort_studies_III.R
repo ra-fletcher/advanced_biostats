@@ -41,12 +41,10 @@ library(tidyverse)
 # Objective: Read data into R and explore data
 
 # Define file path to practical directory (EDIT THIS)
-dir <- 
-  "/Users/robertfletcher/Documents/phd/training"
+dir <- "/Users/robertfletcher/Documents/phd/training"
 
 # Define practical directory (DO NOT EDIT THIS)
-prac <- 
-  "advanced_biostats/04_cohort_studies_III"
+prac <- "advanced_biostats/04_cohort_studies_III"
 
 # Read data
 epic <- readr::read_csv(glue::glue("{dir}/{prac}/data/cohort_03_epic.csv"))
