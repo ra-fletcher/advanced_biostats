@@ -22,7 +22,7 @@
 # Install dependencies (if required) --------------------------------------
 
 # Library names
-libs <- c("mice", "tidyverse")
+libs <- c("jtools", "mice", "tidyverse")
 
 # Install libraries
 install.packages(setdiff(libs, rownames(installed.packages())))
@@ -30,6 +30,7 @@ install.packages(setdiff(libs, rownames(installed.packages())))
 
 # Load libraries ----------------------------------------------------------
 
+library(jtools)
 library(mice)
 library(tidyverse)
 
