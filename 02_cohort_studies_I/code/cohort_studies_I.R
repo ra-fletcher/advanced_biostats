@@ -41,12 +41,10 @@ library(tidyverse)
 # Objective: Read data into R
 
 # Define file path to practical directory (EDIT THIS)
-dir <- 
-  "/Users/robertfletcher/Documents/phd/training"
+dir <- "/Users/robertfletcher/Documents/phd/training"
 
 # Define practical directory (DO NOT EDIT THIS)
-prac <- 
-  "advanced_biostats/02_cohort_studies_I"
+prac <- "advanced_biostats/02_cohort_studies_I"
 
 # Read data
 bc <- readr::read_csv(glue::glue("{dir}/{prac}/data/cohort_01_bc_rates.csv"))
