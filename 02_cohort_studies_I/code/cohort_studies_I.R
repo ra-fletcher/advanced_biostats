@@ -14,8 +14,8 @@
 
 # This is the code for Practical Session 2: Analysis of Cohort Studies I
 
-# `|>` is the base R pipe operator. It will be used throughout this code in 
-# favour of the pipe operator imported with the magrittr library `%>%`
+# `|>` is the base R pipe operator. It will be used throughout this code instead
+# of the pipe operator imported with the magrittr library `%>%`
 
 
 # Install dependencies (if required) --------------------------------------
