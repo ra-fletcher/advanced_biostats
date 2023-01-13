@@ -40,12 +40,10 @@ library(tidyverse)
 # Objective: Read data into R and explore pattern of missingness
 
 # Define file path to practical directory (EDIT THIS)
-dir <- 
-  "/Users/robertfletcher/Documents/phd/training"
+dir <- "/Users/robertfletcher/Documents/phd/training"
 
 # Define practical directory (DO NOT EDIT THIS)
-prac <- 
-  "advanced_biostats/10_missing_data_multiple_imputation"
+prac <- "advanced_biostats/10_missing_data_multiple_imputation"
 
 # Read data
 kar <- readr::read_csv(glue::glue("{dir}/{prac}/data/karonga_2022.csv"))
