@@ -12,10 +12,11 @@
 
 # Notes -------------------------------------------------------------------
 
-# This is the code for Practical Session X: Analysis of Hierarchical Data
+# This is the code for Practical Session 9: Analysis of Hierarchical Data;
+# Repeat Measures
 
-# `|>` is the base R pipe operator. It will be used throughout this code in 
-# favour of the pipe operator imported with the magrittr library `%>%`
+# `|>` is the base R pipe operator. It will be used throughout this code instead
+# of the pipe operator imported with the magrittr library `%>%`
 
 
 # Install dependencies (if required) --------------------------------------
@@ -68,7 +69,7 @@ skin <- skin |>
 # Define function to tabulate
 tabulate <- function(.data, .var1, .var2) {
   tab <- .data |> 
-  dplyr::group_by({{ .var1 }}, {{ .var2 }}) |> 
+    dplyr::group_by({{ .var1 }}, {{ .var2 }}) |> 
     dplyr::summarise(n = n(), .groups = "drop") |> 
     tidyr::pivot_wider(
       id_cols = {{ .var1 }}, names_from = {{ .var2 }}, values_from = n
