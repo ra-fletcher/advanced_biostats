@@ -12,16 +12,17 @@
 
 # Notes -------------------------------------------------------------------
 
-# This is the code for Practical Session X: Analysis of Hierarchical Data
+# This is the code for Practical Session 9: Analysis of Hierarchical Data; 
+# Clustered Data
 
-# `|>` is the base R pipe operator. It will be used throughout this code in 
-# favour of the pipe operator imported with the magrittr library `%>%`
+# `|>` is the base R pipe operator. It will be used throughout this code instead 
+# of the pipe operator imported with the magrittr library `%>%`
 
 
 # Install dependencies (if required) --------------------------------------
 
 # Library names
-libs <- c("jtools", "lmtest", "sandwich", "survival", "tidymodels", "tidyverse")
+libs <- c("jtools", "lmtest", "sandwich", "survival", "tidyverse")
 
 # Install libraries
 install.packages(setdiff(libs, rownames(installed.packages())))
@@ -33,7 +34,6 @@ library(jtools)
 library(lmtest)
 library(sandwich)
 library(survival)
-library(tidymodels)
 library(tidyverse)
 
 
