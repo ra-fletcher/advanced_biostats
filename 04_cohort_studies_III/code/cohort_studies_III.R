@@ -29,11 +29,7 @@ install.packages(setdiff(libs, rownames(installed.packages())))
 
 # Load libraries ----------------------------------------------------------
 
-library(epiR)
-library(jtools)
-library(multcomp)
-library(tidymodels)
-library(tidyverse)
+lapply(libs, library, character.only = TRUE)
 
 
 # Exercise 1; Task A ------------------------------------------------------
@@ -41,7 +37,7 @@ library(tidyverse)
 # Objective: Read data into R and explore data
 
 # Define file path to practical directory (EDIT THIS)
-dir <- "/Users/robertfletcher/Documents/phd/training"
+dir <- "/Users/robertfletcher/Documents/phd/projects"
 
 # Define practical directory (DO NOT EDIT THIS)
 prac <- "advanced_biostats/04_cohort_studies_III"
@@ -132,7 +128,7 @@ anova(fit_age, fit_ageint, test = "LRT")
 #            mortality and whether effect modification between these exposures
 #            exists
 
-# Model adjusted for smoking
+# Create smoking factor variable
 epic <- epic |> 
   mutate(
     smoking_fct = factor(
@@ -192,3 +188,27 @@ chisq.test(table(epic$hostility, epic$smoking_fct))
 
 glm(hostility ~ smoking_fct, data = epic, family = binomial) |> 
   broom::tidy(conf.int = TRUE, exponentiate = TRUE)
+
+
+# Exercise 1; Task E ------------------------------------------------------
+
+# Objective: Explore associations of hostility, age, and smoking
+
+# Fit Poisson model adjusted for age and smoking
+fit_agesmok <-
+  glm(
+    cvd ~ hostility + age_fct + smoking_fct, data = epic, family = poisson, 
+    offset = log(pmonths) 
+  )
+summ(fit_agesmok, confint = TRUE, digits = 3, exp = TRUE)
+
+# Fit Poisson model with interaction term between `hostility` and `age`
+fit_ageint_smok <- 
+  glm(
+    cvd ~ hostility * age_fct + smoking_fct, data = epic, family = poisson, 
+    offset = log(pmonths)
+  )
+summ(fit_ageint_smok, confint = TRUE, digits = 3, exp = TRUE)
+
+# Compute LRT
+anova(fit_agesmok, fit_ageint_smok, test = "LRT")

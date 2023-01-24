@@ -21,7 +21,7 @@
 # Install dependencies (if required) --------------------------------------
 
 # Library names
-libs <- c("Epi", "epiR", "epitools", "popEpi", "tidyverse")
+libs <- c("epiR", "popEpi", "tidyverse")
 
 # Install libraries
 install.packages(setdiff(libs, rownames(installed.packages())))
@@ -29,9 +29,7 @@ install.packages(setdiff(libs, rownames(installed.packages())))
 
 # Load libraries ----------------------------------------------------------
 
-library(Epi)
 library(epiR)
-library(epitools)
 library(popEpi)
 library(tidyverse)
 
@@ -41,7 +39,7 @@ library(tidyverse)
 # Objective: Read data into R
 
 # Define file path to practical directory (EDIT THIS)
-dir <- "/Users/robertfletcher/Documents/phd/training"
+dir <- "/Users/robertfletcher/Documents/phd/projects"
 
 # Define practical directory (DO NOT EDIT THIS)
 prac <- "advanced_biostats/02_cohort_studies_I"
@@ -160,14 +158,14 @@ at_aggr_rel <-
 # Aunts
 popEpi::sir(
   coh.data = at_aggr_rel[at_aggr_rel$relative == "Aunt", ], coh.obs = from0to1, 
-  coh.pyrs = pyrs, ref.data = bc2 , ref.rate = rate,
+  coh.pyrs = pyrs, ref.data = bc2, ref.rate = rate,
   adjust = c("age", "year"), conf.type = "univariate"
 )
 
 # Grandmothers
 popEpi::sir(
   coh.data = at_aggr_rel[at_aggr_rel$relative == "Grandmother", ], 
-  coh.obs = from0to1, coh.pyrs = pyrs, ref.data = bc2 , ref.rate = rate,
+  coh.obs = from0to1, coh.pyrs = pyrs, ref.data = bc2, ref.rate = rate,
   adjust = c("age", "year"), conf.type = "univariate"
 )
 
@@ -252,7 +250,7 @@ dplyr::bind_cols(names, comb_irr, comb_pval)
 # Exercise 3; Task A ------------------------------------------------------
 
 # Load data
-ht <- readr::read_csv(glue::glue("{wd}/data/cohort_01_heart.csv"))
+ht <- readr::read_csv(glue::glue("{dir}/{prac}/data/cohort_01_heart.csv"))
 
 # Format data into five 2 by 2 tables for each age group
 ht_tab <- ht |>
