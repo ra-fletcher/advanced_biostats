@@ -3,8 +3,8 @@
 # Course:  MPhil Population Health Sciences
 # Module:  Advanced Biostatistics for Epidemiology
 # Date:    06-Jan-2023
-# Author:  Rob Fletcher
-# Contact: raf69@medschl.cam.ac.uk
+# Authors: Angela Wood & Rob Fletcher
+# Contact: amw79@medschl.cam.ac.uk | raf69@medschl.cam.ac.uk
 # Purpose: Analysis of Cohort Studies III
 #
 #*******************************************************************************
