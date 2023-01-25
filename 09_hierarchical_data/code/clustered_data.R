@@ -22,7 +22,7 @@
 # Install dependencies (if required) --------------------------------------
 
 # Library names
-libs <- c("jtools", "lmtest", "sandwich", "survival", "tidyverse")
+libs <- c("jtools", "lmtest", "sandwich", "skimr", "survival", "tidyverse")
 
 # Install libraries
 install.packages(setdiff(libs, rownames(installed.packages())))
@@ -33,6 +33,7 @@ install.packages(setdiff(libs, rownames(installed.packages())))
 library(jtools)
 library(lmtest)
 library(sandwich)
+library(skimr)
 library(survival)
 library(tidyverse)
 
@@ -42,7 +43,7 @@ library(tidyverse)
 # Objective: Read data into R
 
 # Define file path to practical directory (EDIT THIS)
-dir <- "/Users/robertfletcher/Documents/phd/training"
+dir <- "/Users/robertfletcher/Documents/phd/projects"
 
 # Define practical directory (DO NOT EDIT THIS)
 prac <- "advanced_biostats/09_hierarchical_data"
@@ -52,6 +53,8 @@ sga <- readr::read_csv(glue::glue("{dir}/{prac}/data/sga.csv"))
 
 # Inspect data
 print(sga, n = 10)
+skimr::skim(sga)
+dplyr::glimpse(sga)
 
 # Define categorical variables as factors
 sga <- sga |> 
@@ -148,6 +151,10 @@ fit3 <-
 
 # Read data
 drs <- readr::read_csv(glue::glue("{dir}/{prac}/data/drs.csv"))
+
+# Inspect data
+skimr::skim(drs)
+dplyr::glimpse(drs)
 
 # Convert data to long format (one row per eye)
 drs_l <- drs |> 

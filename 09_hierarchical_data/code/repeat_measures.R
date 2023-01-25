@@ -41,7 +41,7 @@ library(tidyverse)
 # Objective: Read data into R and recode variables
 
 # Define file path to practical directory (EDIT THIS)
-dir <- "/Users/robertfletcher/Documents/phd/training"
+dir <- "/Users/robertfletcher/Documents/phd/projects"
 
 # Define practical directory (DO NOT EDIT THIS)
 prac <- "advanced_biostats/09_hierarchical_data"
@@ -51,8 +51,14 @@ skin <- readr::read_csv(glue::glue("{dir}/{prac}/data/skin.csv"))
 
 # Inspect data
 print(skin, n = 10)
+skimr::skim(skin)
+dplyr::glimpse(skin)
 
-# Define categoricsal variables as factors
+# Inspect missing data
+skin |> 
+  purrr::map_df(\(x) sum(is.na(x)))
+
+# Define categorical variables as factors
 skin <- skin |> 
   dplyr::mutate(
     treat = factor(treat, levels = 0:1, labels = c("Placebo", "Treatment")),
@@ -88,7 +94,11 @@ tabulate <- function(.data, .var1, .var2) {
         ~ paste0(., " (", round(. / (sum(.) / 2) * 100, digits = 1), "%)")
       )
     )
-  return(tab)
+  var1 <- deparse(substitute(.var1))
+  var2 <- deparse(substitute(.var2))
+  chi <- chisq.test(table(.data[[var1]], .data[[var2]]))
+  res <- list(tab, chi)
+  return(res)
 }
 
 # Tabulate for the entire data
