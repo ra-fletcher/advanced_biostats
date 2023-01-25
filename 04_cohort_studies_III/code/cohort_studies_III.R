@@ -39,7 +39,7 @@ lapply(libs, library, character.only = TRUE)
 # Define file path to practical directory (EDIT THIS)
 dir <- "/Users/robertfletcher/Documents/phd/projects"
 
-# Define practical directory (DO NOT EDIT THIS)
+# Define practical directory (EDIT THIS)
 prac <- "advanced_biostats/04_cohort_studies_III"
 
 # Read data

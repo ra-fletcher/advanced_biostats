@@ -41,7 +41,7 @@ library(tidyverse)
 # Define file path to practical directory (EDIT THIS)
 dir <- "/Users/robertfletcher/Documents/phd/projects"
 
-# Define practical directory (DO NOT EDIT THIS)
+# Define practical directory (EDIT THIS)
 prac <- "advanced_biostats/02_cohort_studies_I"
 
 # Read data

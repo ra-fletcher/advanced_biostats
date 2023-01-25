@@ -40,9 +40,9 @@ library(tidyverse)
 # Objective: Read data into R and explore pattern of missingness
 
 # Define file path to practical directory (EDIT THIS)
-dir <- "/Users/robertfletcher/Documents/phd/training"
+dir <- "/Users/robertfletcher/Documents/phd/projects"
 
-# Define practical directory (DO NOT EDIT THIS)
+# Define practical directory (EDIT THIS)
 prac <- "advanced_biostats/10_missing_data_multiple_imputation"
 
 # Read data
